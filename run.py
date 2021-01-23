@@ -32,7 +32,20 @@ def contact():
 
 @app.route("/chatapp")
 def chatapp():
-    return render_template("chatapp.html")
+    return "To Sender a message use / USERNAME / MESSAGE"
+
+
+
+@app.route('/<username>')
+def user(username):
+    return "Hi  "  +   username
+
+
+
+@app.route('/<username>/<message>')
+def send_message(username, message):
+    return "{0}: {1}".format(username, message)
+
 
 if __name__ == "__main__":
     app.run(
