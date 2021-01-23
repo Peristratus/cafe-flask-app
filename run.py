@@ -30,6 +30,9 @@ def contact():
     return render_template("contact.html")
 
 
+@app.route("/chatapp")
+def chatapp():
+    return render_template("chatapp.html")
 
 if __name__ == "__main__":
     app.run(
