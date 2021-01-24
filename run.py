@@ -3,48 +3,36 @@ from flask import Flask, render_template
 
 
 app = Flask(__name__)
+messages = []
 
-
-@app.route("/")
+@app.route('/')
 def index():
     return render_template("index.html")
 
 
-@app.route("/about")
+@app.route('/about')
 def about():
     return render_template("about.html")
 
 
-@app.route("/products")
+@app.route('/products')
 def products():
     return render_template("products.html")
 
 
-@app.route("/chat")
+@app.route('/chat')
 def chat():
     return render_template("chat.html")  
 
 
-@app.route("/contact")
+@app.route('/contact')
 def contact():
     return render_template("contact.html")
 
 
-@app.route("/chatapp")
+@app.route('/chatapp')
 def chatapp():
-    return "To Sender a message use / USERNAME / MESSAGE"
-
-
-
-@app.route('/<username>')
-def user(username):
-    return "Hi  "  +   username
-
-
-
-@app.route('/<username>/<message>')
-def send_message(username, message):
-    return "{0}: {1}".format(username, message)
+    return render_template("chatapp.html")
 
 
 if __name__ == "__main__":
