@@ -1,13 +1,18 @@
 import os
 from flask import Flask, render_template
-from flask import Flask, redirect
+from datetime import datetime
+from flask import Flask, redirect, request, session, url_for
+
 
 
 app = Flask(__name__)
+app.secret_key = "randomstring123"
 messages =[]
 
 def add_messages(username, message):
-    messages.append("{}: {}".format(username,message))
+    """Add Message to the message list"""
+    now = datetime.now().strftime("%H:%M:%S")
+    messages.append("({}) {}: {}".format( now, username,message))
 
 def get_all_messages():
     """"get all of the messages and separate using a br"""
@@ -38,14 +43,23 @@ def contact():
     return render_template("contact.html")
 
 
+@app.route('/chatlogin')
+def chatlogin():
+    return render_template("chatlogin.html")
+
+
+
 @app.route('/chatapp')
 def chatapp():
     return render_template("chatapp.html")
 
-@app.route("/")
+
+
+@app.route("/", methods=["GET", "POST"])
 def home():
     """ Main Page with instruction"""
-    return "To send message use :/user/messsage"
+    if request.method == "POST":
+        return redirect(url_for("chatapp"))  
 
 
 
