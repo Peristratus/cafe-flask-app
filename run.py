@@ -59,7 +59,12 @@ def chatapp():
 def home():
     """ Main Page with instruction"""
     if request.method == "POST":
-        return redirect(url_for("chatapp"))  
+        session["username"]= request.form["username"]
+
+    if "username" in session:
+        return redirect(session["username"])
+        
+    return render_tempalte("chatlogin")
 
 
 
