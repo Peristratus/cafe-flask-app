@@ -4,19 +4,21 @@ from datetime import datetime
 from flask import Flask, redirect, request, session, url_for
 
 
-
 app = Flask(__name__)
 app.secret_key = "randomstring123"
-messages =[]
+messages = []
+
 
 def add_message(username, message):
     """Add Message to the message list"""
     now = datetime.now().strftime("%H:%M:%S")
     messages.append({"timestamp": now, "from": username, "message": message})
 
+
 def get_all_messages():
     """"get all of the messages and separate using a br"""
     return "<br>".join(messages)
+
 
 @app.route('/')
 def index():
@@ -43,46 +45,32 @@ def contact():
     return render_template("contact.html")
 
 
-@app.route('/chatlogin')
+@app.route('/chatlogin', methods=["GET", "POST"])
 def chatlogin():
-    return render_template("chatlogin.html")
+    if request.method == "POST":
+        session["username"] = request.form["username"]
 
+    if "username" in session:
+        return render_template("chatapp.html", username=session["username"], chat_messages = messages)
+        
+    return render_template("chatlogin.html", username = "Untitled") 
 
 
 @app.route('/chatapp')
 def chatapp():
-    return render_template("chatapp.html")
-
-
-
-@app.route("/", methods=["GET", "POST"])
-def home():
-    """ Main Page with instruction"""
-    if request.method == "POST":
-        session["username"]= request.form["username"]
-
-    if "username" in session:
-        return redirect(url_for("user", username=session["username"]))
-        
-    return render_tempalte("chatlogin.html") 
-
-
-
-@app.route('/chatapp/<username>', methods =["GET", "POST"])
-def user(username):
-    """ Add and display chat Message"""
+    username = session["username"]
 
     if request.method == "POST":
-        username = session["username"]
         message = request.form["message"]
         add_message(username, message)
-        return redirect(url_for("user", username=session["username"]))
+        print(messages)
+        return render_template("chatapp.html", username = username, chat_messages = messages)
 
     return render_template("chatapp.html", username = username, chat_messages = messages)
 
 
 if __name__ == "__main__":
-       app.run(
+    app.run(
         host=os.environ.get("IP", "0.0.0.0"),
         port=int(os.environ.get("PORT", "5000")),
         debug=True)

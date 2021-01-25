@@ -8,15 +8,15 @@
 <body>
             <h1> welcome, {{username}}</h1>
 
-             <from method = "POST">
+             <form method = "POST">
                 <textarea cols= "50" rows= "4" name = "message" id= "message"></textarea>
                   <br>
-                  <button> Send message</button>
-             </from>
+                  <button class="btn btn-warning btn-lg btn-block" id="btn-chat"> Send message</button>
+             </form>
 
     	    {% for message in chat_messages %}
-	        <p>({{ message.timestamp }}) {{ message.from }}: {{ message.message }}</p>
-	    {% endfor %}
+	            <p>({{ message.timestamp }}) {{ message.from }}: {{ message.message }}</p>
+	        {% endfor %}
 	    
 	    <script>
             let textbox = document.getElementById("message")
