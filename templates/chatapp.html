@@ -15,6 +15,10 @@
         color: #555;
         margin-bottom: 5px;
       }
+       a{
+
+          text-decoration: none;
+      }
     </style>
 </head>
 <body>
@@ -39,6 +43,10 @@
                         <div style="padding-top: 10px;"></div>
                         <button class="btn btn-warning btn-block"><span class="glyphicon glyphicon-send"></span> Send</button>
                      </form>
+                     <div style="padding-top: 10px;"></div>
+                     <a class="reset" href="{{url_for('reset')}}"><button class="btn btn-secondary btn-block">Reset</button></a>
+                     <div style="padding-top: 10px;"></div>
+                     <a  class="reset" href="{{url_for('chat')}}"><button class="btn btn-secondary btn-block">Return to Chat Room</button></a>
                 </div>
             </div>
 
