@@ -69,6 +69,12 @@ def chatapp():
     return render_template("chatapp.html", username=session["username"], chat_messages = messages)
 
 
+@app.route('/reset')
+def reset():
+    messages[:] = []
+    return redirect(url_for("chatapp", username=session["username"], chat_messages = messages))
+
+
 if __name__ == "__main__":
     app.run(
         host=os.environ.get("IP", "0.0.0.0"),
