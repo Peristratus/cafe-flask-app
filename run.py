@@ -51,12 +51,12 @@ def chatlogin():
         session["username"] = request.form["username"]
 
     if "username" in session:
-        return render_template("chatapp.html", username=session["username"], chat_messages = messages)
-        
+        return redirect(url_for("chatapp", username=session["username"], chat_messages = messages))
+
     return render_template("chatlogin.html", username = "Untitled") 
 
 
-@app.route('/chatapp')
+@app.route('/chatapp', methods=["GET", "POST"])
 def chatapp():
     username = session["username"]
 
@@ -64,9 +64,9 @@ def chatapp():
         message = request.form["message"]
         add_message(username, message)
         print(messages)
-        return render_template("chatapp.html", username = username, chat_messages = messages)
+        return redirect(url_for("chatapp", username=session["username"], chat_messages = messages))
 
-    return render_template("chatapp.html", username = username, chat_messages = messages)
+    return render_template("chatapp.html", username=session["username"], chat_messages = messages)
 
 
 if __name__ == "__main__":
