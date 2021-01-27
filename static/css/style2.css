@@ -1,0 +1,22 @@
+#speech-bubble {
+       background: #c50d66 ;
+       color: #fff;
+       padding: 0.5em 1em;
+       position: relative;
+       border-radius: 0 0.25em 0.25em 0.25em;
+       box-shadow: 7px 30px 40px #664400;
+       transition: 0.5s;
+       animation: speech .7s linear 1;
+      }
+
+ #speech-bubble::after{
+          content: '';
+          position: absolute;
+          border: 0.5 solid transparent;
+          border-top-color: #c50d66;
+          border-right-color:  #c50d66;
+          right: 50%;
+          top: 0%;
+          transform: skewY(20deg);
+          transform-origin: 100%  100% 
+      }
