@@ -17,6 +17,10 @@
           border-right-color:  #c50d66;
           right: 50%;
           top: 0%;
-          transform: skewY(20deg);
-          transform-origin: 100%  100% 
+          border-right: 0;
+          margin-left: -51px;
+          margin-bottom: -62px;
       }
+
+    
+
