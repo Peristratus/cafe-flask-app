@@ -16,7 +16,11 @@
                 <div class="col-sm-8">
                     <div>
                         {% for message in chat_messages %}
-	                    <p class= "thought">({{ message.timestamp }}) {{ message.from }}: {{ message.message }}</p>
+                            {% if message.from == username %}
+                                <p class= "thought">({{ message.timestamp }}) {{ message.from }}: {{ message.message }}</p>
+                            {% else %}
+                                <p id="speech-bubble">({{ message.timestamp }}) {{ message.from }}: {{ message.message }}</p>
+                            {% endif %}
 	                     {% endfor %}
                     
                     </div>
@@ -53,7 +57,6 @@
                 
             }
 	    </script>
-	    
 
     </body>
 </html>
