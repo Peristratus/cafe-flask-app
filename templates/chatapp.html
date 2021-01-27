@@ -15,7 +15,7 @@
                 <div class="col-sm-8">
                     <div>
                         {% for message in chat_messages %}
-	                    <p id= "speech-bubble">({{ message.timestamp }}) {{ message.from }}: {{ message.message }}</p>
+	                    <p class= "thought">({{ message.timestamp }}) {{ message.from }}: {{ message.message }}</p>
 	                     {% endfor %}
                     
                     </div>
