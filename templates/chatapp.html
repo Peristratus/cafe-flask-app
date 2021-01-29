@@ -514,7 +514,7 @@
                                     {% if message.from == username %}
                                     <p class="thought">({{ message.timestamp }}) {{ message.from }}: {{ message.message }}</p>
                                     {% else %}
-                                    <p id="speech-bubble">({{ message.timestamp }}) {{ message.from }}: {{ message.message }}</p>
+                                    <p class="bubble">({{ message.timestamp }}) {{ message.from }}: {{ message.message }}</p>
                                     {% endif %}
                                     {% endfor %}
 
