@@ -7,7 +7,7 @@ p.thought {
 position:relative; /*see the support section below for more info*/
 width:200px; /*size of the bubble*/
 padding:10px 20px;
-margin:10px 10px 80px 40px;
+margin:40px 40px 80px 40px;
 /**give the bubble's background a gradient**/
 background:#f7a944; /*fallback colour for non-supporting browsers*/
 background:-webkit-gradient(linear, 0 0, 0 100%, from(#fac868), to(#f3961c));
@@ -71,7 +71,7 @@ p.bubble {
 position:relative; /*see the support section below for more info*/
 width:200px; /*size of the bubble*/
 padding:10px 20px;
-margin:10px 10px 80px 220px;
+margin:40px 40px 80px 220px;
 /**give the bubble's background a gradient**/
 background:#87CEFA; /*fallback colour for non-supporting browsers*/
 background:-webkit-gradient(linear, 0 0, 0 100%, from(#B0C4DE), to(#87CEFA));
