@@ -73,11 +73,11 @@ width:200px; /*size of the bubble*/
 padding:10px 20px;
 margin:10px 10px 80px 220px;
 /**give the bubble's background a gradient**/
-background:#f7a944; /*fallback colour for non-supporting browsers*/
-background:-webkit-gradient(linear, 0 0, 0 100%, from(#fac868), to(#f3961c));
-background:-moz-linear-gradient(#fac868, #f3961c);
-background:-o-linear-gradient(#fac868, #f3961c);
-background:linear-gradient(#fac868, #f3961c);
+background:#87CEFA; /*fallback colour for non-supporting browsers*/
+background:-webkit-gradient(linear, 0 0, 0 100%, from(#B0C4DE), to(#87CEFA));
+background:-moz-linear-gradient(#B0C4DE, #87CEFA);
+background:-o-linear-gradient(#B0C4DE, #87CEFA);
+background:linear-gradient(#B0C4DE, #87CEFA);
 /**give the corners a large curve**/
 -webkit-border-radius:180px;
 -moz-border-radius:180px;
@@ -99,7 +99,7 @@ content:"";
 position:absolute; /*see the support section below for more info*/
 bottom:-20px; /*distance from the bottom of the bubble*/
 right:20px; /*distance from the left edge of the bubble*/
-background:#f3961c;
+background:#87CEFA;
 width:15px; /*same as the height*/
 height:15px; /*same as the width*/
 /*add a curve to the corners the same size as the height and width*/
@@ -120,11 +120,16 @@ bottom:-30px;
 right:0;
 width:15px;
 height:15px;
-background:#f3961c;
+background:#87CEFA;
 -webkit-border-radius:15px;
 -moz-border-radius:15px;
 border-radius:15px;
 -webkit-box-shadow: -3px 3px 4px #989898;
 -moz-box-shadow: -3px 3px 4px #989898;
 box-shadow: -3px 3px 8px #989898;
+}
+
+.icon{
+
+    margin-right: 7px;
 }
