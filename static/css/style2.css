@@ -2,6 +2,7 @@
 
 @import url(https://fonts.googleapis.com/css?family=Lato:300,400,700);
 
+/* Left text buble */
 p.thought {
 position:relative; /*see the support section below for more info*/
 width:200px; /*size of the bubble*/
@@ -64,6 +65,7 @@ border-radius:15px;
 box-shadow: -3px 3px 8px #989898;
 }
 
+/* Right text buble */
 
 p.bubble {
 position:relative; /*see the support section below for more info*/
